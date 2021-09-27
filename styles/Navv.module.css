@@ -1,0 +1,46 @@
+.nav {
+  background: transparent;
+  transition: background 0.8s;
+}
+.navList {
+  margin: auto;
+  letter-spacing: 1.5px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  padding: 0 10vh 0 10vh;
+}
+.navBrand {
+  margin-left: 10vh;
+
+  font-size: 53px;
+  font-family: var(--font-black);
+  color: var(--main-text) !important;
+}
+/* .active {
+  background: var(--third-background);
+  transition: color 0.4s;
+  transition: background 0.8s;
+  color: var(--white-text);
+  opacity: 0.9;
+}
+.active .navList,
+.active .navBrand {
+  transition: color 0.2s;
+  color: var(--white-text) !important;
+} */
+
+.link {
+  margin: 0 30px 0 30px;
+  font-family: var(--font-bold);
+}
+@media only screen and (max-width: 991px) {
+  .nav {
+    background: var(--main-background);
+    opacity: 0.9;
+    margin-left: 0;
+    padding: 20px;
+  }
+}

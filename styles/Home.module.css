@@ -1,0 +1,75 @@
+.container {
+  padding: 0px 50px 0px 50px;
+}
+
+.brand {
+  color: var(--main-text);
+  font-family: var(--font-black);
+}
+.hero {
+  width: 96%;
+  margin-top: 12vh;
+  margin-bottom: 10vh;
+}
+
+.hero h1 {
+  color: var(--main-text);
+  font-family: var(--font-black);
+  font-size: 65px;
+}
+
+.hero h4 {
+  color: #fff;
+  font-family: var(--font-thin);
+  font-size: 15px;
+}
+
+.btnWrapper {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.btn {
+  background: none;
+  font-size: 30px;
+  padding: 30px;
+  border: 1px solid var(--main-text);
+  font-family: var(--font-black);
+  cursor: pointer;
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 5vh;
+}
+.btn:hover {
+  background-color: var(--main-text);
+  border: 1px solid var(--main-text);
+  color: #482c2c;
+  -webkit-text-stroke-width: 0;
+}
+
+.legalInfos {
+  text-align: center;
+  color: #fff;
+  font-family: var(--font-thin);
+}
+
+@media only screen and (max-width: 525px) {
+  .hero h1 {
+    font-size: 50px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .btn {
+    padding: 10px;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .hero h1 {
+    font-size: 30px;
+    margin-bottom: 10vh;
+  }
+}
