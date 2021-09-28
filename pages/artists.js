@@ -13,16 +13,17 @@ export default function TopArtists() {
 
 
     const getData = async () => {
-        axios.get('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=5&offset=5', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + accessToken
-            },
-        }).then(response => {
-            setArtists([response.data.items])
-            console.log(response.data)
+        if (accessToken) {
+            axios.get('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=5&offset=5', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + accessToken
+                },
+            }).then(response => {
+                setArtists([response.data.items])
 
-        }).catch(error => { console.log({ msg: error }) })
+            }).catch(error => { console.log({ msg: error }) })
+        }
     }
 
     useEffect(() => {
@@ -36,8 +37,6 @@ export default function TopArtists() {
         getData();
     }, [])
 
-
-    console.log(accessToken);
 
     return (
         <div>

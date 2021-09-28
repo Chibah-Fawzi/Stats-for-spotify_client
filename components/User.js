@@ -20,15 +20,16 @@ export default function Genres() {
 
 
     const getToken = async () => {
-        axios.get('https://api.spotify.com/v1/me', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + accessToken
-            },
-        }).then(response => {
-            setUser([response.data])
-            console.log(response.data)
-        }).catch(error => { console.log({ msg: error }) })
+        if (accessToken) {
+            axios.get('https://api.spotify.com/v1/me', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + accessToken
+                },
+            }).then(response => {
+                setUser([response.data])
+            }).catch(error => { console.log({ msg: error }) })
+        }
     }
 
 
