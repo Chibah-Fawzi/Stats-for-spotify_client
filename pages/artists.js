@@ -8,28 +8,29 @@ import cookie from 'react-cookies'
 export default function TopArtists() {
     const [artists, setArtists] = useState([])
 
-    const { accessToken } = useContext(globalContext)
+    const [accessToken, setAccessToken] = useState(cookie.load('token'));
 
 
 
     const getData = async () => {
-        if (accessToken) {
-            axios.get('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=5&offset=5', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + accessToken
-                },
-            }).then(response => {
-                setArtists([response.data.items])
+        axios.get('https://api.spotify.com/v1/me/top/artists?time_range=medium_term&limit=5&offset=5', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + accessToken
+            },
+        }).then(response => {
+            setArtists([response.data.items])
 
-            }).catch(error => { console.log({ msg: error }) })
-        }
+        }).catch(error => { console.log({ msg: error }) })
     }
 
     useEffect(() => {
 
-        if (accessToken != null) {
+        const tok = new URL(window.location.href).search.split('access_token=')[1]
+        if (tok != null) {
+            const token = tok
             cookie.save('token', token, { path: '/' })
+            setAccessToken(token)
         }
         getData();
     }, [])
