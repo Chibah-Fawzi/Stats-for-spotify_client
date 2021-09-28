@@ -8,7 +8,7 @@ import cookie from 'react-cookies'
 export default function TopArtists() {
     const [artists, setArtists] = useState([])
 
-    const [accessToken, setAccessToken] = useState(cookie.load('token'));
+    const { accessToken } = useContext(globalContext)
 
 
 
@@ -28,11 +28,8 @@ export default function TopArtists() {
 
     useEffect(() => {
 
-        const tok = new URL(window.location.href).search.split('access_token=')[1]
-        if (tok != null) {
-            const token = tok
+        if (accessToken != null) {
             cookie.save('token', token, { path: '/' })
-            setAccessToken(token)
         }
         getData();
     }, [])

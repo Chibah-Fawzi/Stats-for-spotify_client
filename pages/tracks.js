@@ -6,6 +6,7 @@ import querystring from 'querystring';
 
 import { useRouter } from 'next/router'
 import Navbar from '../components/Navbar'
+import { globalContext } from '../context'
 
 
 
@@ -13,14 +14,14 @@ export default function TopTracks() {
     const [tracks, setTracks] = useState([])
 
     const router = useRouter()
+    const { accessToken } = useContext(globalContext)
 
-    var access_token = router.query.access_token
 
     const getToken = async () => {
         axios.get('https://api.spotify.com/v1/me/top/tracks?time_range=medium_term&limit=5&offset=5', {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + access_token
+                'Authorization': 'Bearer ' + accessToken
             },
         }).then(response => {
             setTracks([response.data.items])
@@ -29,6 +30,9 @@ export default function TopTracks() {
     }
 
     useEffect(() => {
+        if (accessToken != null) {
+            cookie.save('token', token, { path: '/' })
+        }
         getToken()
     }, [])
 

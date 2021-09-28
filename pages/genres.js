@@ -10,7 +10,7 @@ export default function Genres() {
     const [user, setUser] = useState([])
 
 
-    const [accessToken, setAccessToken] = useState(cookie.load('token'));
+    const { accessToken } = useContext(globalContext)
 
     const getData = async () => {
         if (accessToken) {
@@ -29,11 +29,8 @@ export default function Genres() {
 
     useEffect(() => {
 
-        const tok = new URL(window.location.href).search.split('access_token=')[1]
-        if (tok != null) {
-            const token = tok
+        if (accessToken != null) {
             cookie.save('token', token, { path: '/' })
-            setAccessToken(token)
         }
         getData();
     }, [])
