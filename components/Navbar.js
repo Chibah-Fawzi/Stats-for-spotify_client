@@ -1,13 +1,25 @@
 import { Navbar, Nav } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import styles from '../styles/Navv.module.css'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import User from './User'
 
 export default function Navv() {
     const router = useRouter()
+    const [navbar, setNavbar] = useState(false);
+
+    useEffect(() => {
+        const changeBackground = () => {
+            if (window.scrollY >= 100) {
+                setNavbar(true)
+            } else {
+                setNavbar(false)
+            }
+        }
+        window.addEventListener('scroll', changeBackground)
+    }, [navbar])
 
     var access_token = router.query.access_token
     const activeClass = () => {
@@ -16,7 +28,7 @@ export default function Navv() {
 
     return (
         <nav>
-            <Navbar className={styles.nav} fixed="top" expand="lg" variant="light">
+            < Navbar className={navbar ? styles.active : styles.nav} fixed="top" expand="lg" variant="light" >
                 <Navbar.Brand className={styles.navBrand}>
                     <Link href={`/?access_token=${access_token}`}>
                         <a>SFS</a>

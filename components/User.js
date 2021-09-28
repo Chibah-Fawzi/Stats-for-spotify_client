@@ -51,17 +51,17 @@ export default function Genres() {
                         <div key={i} className={styles.card}>
                             <div style={{ display: 'flex', flexDirection: 'row' }}>
                                 <img src={u.images[0].url} />
-                                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                                {/* <div style={{ display: 'flex', flexDirection: 'row' }}>
                                     <a href={u.external_urls.spotify}><h1>{u.display_name}</h1></a>
                                     <h4>{u.country}</h4>
-                                </div>
+                                </div> */}
                             </div>
-                            <div style={{ marginTop: '-30px' }}>
+                            {/* <div style={{ marginTop: '-30px' }}>
                                 <hr style={{ color: '#fff', height: "2px" }} />
                                 <h4>{u.email}</h4>
                                 <h4>Follower number : {u.followers.total}</h4>
                                 <a onClick={LogOut} className={styles.disconnect}>Disconnect</a>
-                            </div>
+                            </div> */}
                         </div>
                     )
                 }

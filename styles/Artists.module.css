@@ -1,0 +1,89 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  margin-top: 22.5vh;
+  place-items: center;
+}
+
+.layout h1 {
+  margin-bottom: 10vh;
+  text-align: center;
+  color: #fff;
+  font-family: var(--font-thin);
+  text-transform: uppercase;
+}
+.boxes {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: auto;
+  justify-content: space-around;
+}
+
+.btn {
+  width: fit-content;
+  padding: 14px;
+  color: #fff;
+  background: none;
+  border: 1px solid var(--main-text);
+  font-family: var(--font-black);
+  text-transform: uppercase;
+  font-size: 30px;
+}
+.btn:hover {
+  color: var(--main-dark);
+  background: var(--main-text);
+  border: 1px solid var(--main-text);
+}
+.displayWrapper {
+  width: fit-content;
+  margin-top: 5vh;
+  place-content: center;
+}
+.display {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 10vh;
+  column-gap: 10vh;
+  background-color: rgba(0, 0, 0, 0.13);
+  padding: 5vh;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-family: var(--font-thin);
+  width: 300px;
+}
+.card img {
+  max-width: 300px;
+  max-height: 300px;
+  margin-bottom: 4vh;
+}
+.card h2 {
+  font-family: var(--font-black);
+  color: var(--main-text);
+}
+.card h4 {
+  font-size: 19px;
+  text-transform: capitalize;
+  font-family: var(--font-thin) !important;
+}
+.card span:not(h4) {
+  font-size: 19px;
+  text-transform: uppercase;
+}
+.card span {
+  font-family: var(--font-bold) !important;
+}
+.card a h4 {
+  color: var(--spotify) !important;
+  font-size: 15px !important;
+}
+.card i {
+  font-family: var(--font-black) !important;
+}
+
+.card:last-child:nth-child(3n - 2) {
+  grid-column-end: 3;
+}
