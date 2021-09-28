@@ -8,7 +8,7 @@ export default function Homepage() {
     var router = useRouter()
 
     const Login = () => {
-        router.push('http://localhost:8888/login')
+        router.push('https://statsforspotify.herokuapp.com/login')
     }
 
     return (
