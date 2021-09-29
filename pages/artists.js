@@ -103,7 +103,7 @@ const LastMonth = (props) => {
                         <h2>{index + 1}. {artist.name}</h2>
                         <h4><span>Genre : </span>{artist.genres[0]}</h4>
                         <h4><span>Followers : </span>{artist.followers.total}</h4>
-                        <a target="_blank" href={artist.external_urls.spotify}>
+                        <a target="_blank" rel="noreferrer" href={artist.external_urls.spotify}>
                             <h4>
                                 <span>
                                     Ecouter <i>{artist.name}</i>
@@ -129,7 +129,7 @@ const HalfYear = (props) => {
                         <h2>{index + 1}. {artist.name}</h2>
                         <h4><span>Genre : </span>{artist.genres[0]}</h4>
                         <h4><span>Followers : </span>{artist.followers.total}</h4>
-                        <a target="_blank" href={artist.external_urls.spotify}>
+                        <a target="_blank" rel="noreferrer" href={artist.external_urls.spotify}>
                             <h4>
                                 <span>
                                     Ecouter <i>{artist.name}</i>
@@ -155,7 +155,7 @@ const AllTime = (props) => {
                         <h2>{index + 1}. {artist.name}</h2>
                         <h4><span>Genre : </span>{artist.genres[0]}</h4>
                         <h4><span>Followers : </span>{artist.followers.total}</h4>
-                        <a target="_blank" href={artist.external_urls.spotify}>
+                        <a target="_blank" rel="noreferrer" href={artist.external_urls.spotify}>
                             <h4>
                                 <span>
                                     Ecouter <i>{artist.name}</i>
