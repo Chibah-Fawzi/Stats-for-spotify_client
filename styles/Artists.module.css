@@ -70,7 +70,7 @@
   font-family: var(--font-thin) !important;
 }
 .card span:not(h4) {
-  font-size: 19px;
+  font-size: 16;
   text-transform: uppercase;
 }
 .card span {
@@ -86,4 +86,41 @@
 
 .card:last-child:nth-child(3n - 2) {
   grid-column-end: 3;
+}
+
+.card li {
+  font-size: 16;
+}
+
+@media only screen and (max-width: 1070px) {
+  .display {
+    display: grid;
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+@media only screen and (max-width: 800px) {
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    row-gap: 10vh;
+  }
+  .btn {
+    width: 400px;
+  }
+  .display {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .boxes {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    row-gap: 10vh;
+  }
+  .btn {
+    width: 200px;
+  }
 }

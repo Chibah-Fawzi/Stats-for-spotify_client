@@ -48,6 +48,12 @@ export default function Toptracks(props) {
         }).catch(error => { console.log({ msg: error }) })
     }
 
+    const MstoMn = (millis) => {
+        var minutes = Math.floor(millis / 60000);
+        var seconds = ((millis % 60000) / 1000).toFixed(0);
+        return minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
+    }
+
     useEffect(() => {
 
         const tok = new URL(window.location.href).search.split('access_token=')[1]
@@ -82,7 +88,7 @@ export default function Toptracks(props) {
                     </div>
                     <Navbar />
                     <div className={styles.displayWrapper}>
-                        {selected === 0 && handleSelect ? <LastMonth setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} /> : selected === 2 && handleSelect ? <AllTime tracksAllTime={tracksAllTime} /> : ''}
+                        {selected === 0 && handleSelect ? <LastMonth MstoMn={MstoMn} setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} MstoMn={MstoMn} /> : selected === 2 && handleSelect ? <AllTime tracksAllTime={tracksAllTime} MstoMn={MstoMn} /> : ''}
                     </div>
                 </div>
             </globalContext.Provider>
@@ -92,7 +98,7 @@ export default function Toptracks(props) {
 
 
 const LastMonth = (props) => {
-    const { tracksMonth } = props
+    const { tracksMonth, MstoMn } = props
     return (
         <div className={styles.display}>
 
@@ -107,9 +113,9 @@ const LastMonth = (props) => {
                                 width="30%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media" ></iframe> */}
 
                             <img src={track.album.images[0].url} />
-                            <li>{track.duration_ms}ms</li>
-                            <li>{track.album.name}</li>
-                            <li><a href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></li>
+                            <li><span>Time : </span>{MstoMn(track.duration_ms)}</li>
+                            <li><span>Album : </span>{track.album.name}</li>
+                            <li><span>Artist : </span><a href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></li>
                         </ul>
                         <br style={{ height: '10px', backgroundColor: 'black' }} />
                     </div>
@@ -120,7 +126,7 @@ const LastMonth = (props) => {
     )
 }
 const HalfYear = (props) => {
-    const { tracksHalfYear } = props
+    const { tracksHalfYear, MstoMn } = props
 
     return (
         <div className={styles.display}>
@@ -135,9 +141,9 @@ const HalfYear = (props) => {
                                 width="30%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media" ></iframe> */}
 
                             <img src={track.album.images[0].url} />
-                            <li>{track.duration_ms}ms</li>
-                            <li>{track.album.name}</li>
-                            <li><a href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></li>
+                            <li><span>Time : </span>{MstoMn(track.duration_ms)}</li>
+                            <li><span>Album : </span>{track.album.name}</li>
+                            <li><span>Artist : </span><a href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></li>
                         </ul>
                         <br style={{ height: '10px', backgroundColor: 'black' }} />
                     </div>
@@ -148,7 +154,7 @@ const HalfYear = (props) => {
     )
 }
 const AllTime = (props) => {
-    const { tracksAllTime } = props
+    const { tracksAllTime, MstoMn } = props
 
     return (
         <div className={styles.display}>
@@ -163,9 +169,9 @@ const AllTime = (props) => {
                                 width="30%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media" ></iframe> */}
 
                             <img src={track.album.images[0].url} />
-                            <li>{track.duration_ms}ms</li>
-                            <li>{track.album.name}</li>
-                            <li><a href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></li>
+                            <li><span>Time : </span>{MstoMn(track.duration_ms)}</li>
+                            <li><span>Album : </span>{track.album.name}</li>
+                            <li><span>Artist : </span><a href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></li>
                         </ul>
                         <br style={{ height: '10px', backgroundColor: 'black' }} />
                     </div>
