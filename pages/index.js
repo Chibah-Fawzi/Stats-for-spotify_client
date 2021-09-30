@@ -21,6 +21,7 @@ export default function Stats() {
       cookie.save('token', token, { path: '/' })
       setAccessToken(token)
     } else if (tok == undefined) {
+      setAccessToken('')
       cookie.remove('token', { path: '/' })
       router.push('/')
     }
