@@ -24,7 +24,7 @@
   transition: color 0.4s;
   transition: background 0.8s;
   color: #fff;
-  opacity: 0.95;
+  opacity: 0.9;
 }
 .active .navList {
   transition: color 0.2s;
@@ -41,8 +41,10 @@
 @media only screen and (max-width: 991px) {
   .nav {
     background: var(--main-background);
-    opacity: 0.9;
     margin-left: 0;
-    padding: 20px;
+    /* padding: 20px; */
+  }
+  .navList {
+    opacity: 0.9;
   }
 }
