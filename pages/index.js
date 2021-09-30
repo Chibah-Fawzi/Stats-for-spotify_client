@@ -12,6 +12,7 @@ import { globalContext } from '../context'
 
 export default function Stats() {
   const [accessToken, setAccessToken] = useState(cookie.load('token'));
+  var router = useRouter()
 
   useEffect(() => {
     const tok = new URL(window.location.href).search.split('access_token=')[1]
