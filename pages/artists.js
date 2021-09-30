@@ -5,6 +5,7 @@ import axios from 'axios'
 import { globalContext } from '../context'
 import cookie from 'react-cookies'
 
+import { useRouter } from 'next/router'
 
 export default function TopArtists(props) {
     const [selected, setSelected] = useState('')
@@ -16,7 +17,7 @@ export default function TopArtists(props) {
 
     const [accessToken, setAccessToken] = useState(cookie.load('token'));
 
-
+    const router = useRouter()
 
     const getData = async () => {
         axios.get('https://api.spotify.com/v1/me/top/artists?time_range=short_term&limit=10', {
@@ -55,6 +56,10 @@ export default function TopArtists(props) {
             const token = tok
             cookie.save('token', token, { path: '/' })
             setAccessToken(token)
+        } else if (tok == undefined) {
+            cookie.remove('token', { path: '/' })
+            router.push('/')
+
         }
         getData();
     }, [])
