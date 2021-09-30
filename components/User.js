@@ -39,7 +39,7 @@ export default function Genres() {
     const LogOut = (e) => {
         e.preventDefault();
         cookie.remove('token', { path: '/' })
-        router.push('/')
+        router.push('https://statsforspotify.vercel.app/')
     }
 
 

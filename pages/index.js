@@ -20,8 +20,6 @@ export default function Stats() {
       const token = tok
       cookie.save('token', token, { path: '/' })
       setAccessToken(token)
-    } else if (tok == (null || undefined)) {
-      router.push('/')
     }
   }, [])
 
