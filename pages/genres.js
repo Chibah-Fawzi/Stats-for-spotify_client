@@ -6,11 +6,14 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 import cookie from 'react-cookies'
 
+
 export default function Genres() {
     const [user, setUser] = useState([])
 
 
     const [accessToken, setAccessToken] = useState(cookie.load('token'));
+
+    const router = useRouter()
 
     const getData = async () => {
         axios.get('https://api.spotify.com/v1/me', {
@@ -32,6 +35,10 @@ export default function Genres() {
             const token = tok
             cookie.save('token', token, { path: '/' })
             setAccessToken(token)
+        } else if (tok == undefined) {
+            cookie.remove('token', { path: '/' })
+            router.push('/')
+
         }
         getData();
     }, [])

@@ -12,7 +12,7 @@ import { globalContext } from '../context'
 
 export default function Stats() {
   const [accessToken, setAccessToken] = useState(cookie.load('token'));
-  var router = useRouter()
+  const router = useRouter()
 
   useEffect(() => {
     const tok = new URL(window.location.href).search.split('access_token=')[1]
@@ -20,6 +20,9 @@ export default function Stats() {
       const token = tok
       cookie.save('token', token, { path: '/' })
       setAccessToken(token)
+    } else if (tok == undefined) {
+      cookie.remove('token', { path: '/' })
+      router.push('/')
     }
   }, [])
 

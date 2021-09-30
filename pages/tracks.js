@@ -5,6 +5,8 @@ import axios from 'axios'
 import { globalContext } from '../context'
 import cookie from 'react-cookies'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
+
 
 export default function Toptracks(props) {
     const [selected, setSelected] = useState('')
@@ -16,6 +18,7 @@ export default function Toptracks(props) {
 
     const [accessToken, setAccessToken] = useState(cookie.load('token'));
 
+    const router = useRouter()
 
 
     const getData = async () => {
@@ -61,6 +64,10 @@ export default function Toptracks(props) {
             const token = tok
             cookie.save('token', token, { path: '/' })
             setAccessToken(token)
+        } else if (tok == undefined) {
+            cookie.remove('token', { path: '/' })
+            router.push('/')
+
         }
         getData();
     }, [])
