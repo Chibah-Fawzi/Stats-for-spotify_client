@@ -97,7 +97,7 @@ export default function Toptracks(props) {
                         </div>
                         <Navbar />
                         <div className={styles.displayWrapper}>
-                            {selected === 0 && handleSelect ? <LastMonth MstoMn={MstoMn} setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} MstoMn={MstoMn} /> : selected === 2 && handleSelect ? <AllTime tracksAllTime={tracksAllTime} MstoMn={MstoMn} /> : ''}
+                            {selected === 0 && handleSelect ? <LastMonth MstoMn={MstoMn} setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} MstoMn={MstoMn} /> : selected === 2 && handleSelect ? <a target="_blank" rel="noreferrer" llTime tracksAllTime={tracksAllTime} MstoMn={MstoMn} /> : ''}
                         </div>
                     </div>
                     : <h1>Login</h1>}
@@ -116,21 +116,21 @@ const LastMonth = (props) => {
     return (
         <div className={styles.display}>
 
-            {tracksMonth.map((e, i) => e.map((track) => {
+            {tracksMonth.map((e, i) => e.map((track, index) => {
                 var src = `https://open.spotify.com/embed/track/${track.id}`
                 return (
                     <div key={i}>
-                        <ul className={styles.card}>
-                            <li><a href={track.external_urls.spotify}><h3>{track.name}</h3></a></li>
+                        <div className={styles.card}>
 
                             {/* <iframe src={src}
                                 width="30%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media" ></iframe> */}
 
                             <img src={track.album.images[0].url} />
-                            <li><span>Time : </span>{MstoMn(track.duration_ms)}</li>
-                            <li><span>Album : </span>{track.album.name}</li>
-                            <li><span>Artist : </span><a href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></li>
-                        </ul>
+                            <a target="_blank" rel="noreferrer" href={track.external_urls.spotify}><h2>{index + 1}. {track.name}</h2></a>
+                            <h4><span>Time : </span>{MstoMn(track.duration_ms)}</h4>
+                            <h4><span>Album : </span>{track.album.name}</h4>
+                            <h4><span>Artist : </span>  <a target="_blank" rel="noreferrer" href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></h4>
+                        </div>
                         <br style={{ height: '10px', backgroundColor: 'black' }} />
                     </div>
                 )
@@ -144,21 +144,21 @@ const HalfYear = (props) => {
 
     return (
         <div className={styles.display}>
-            {tracksHalfYear.map((e, i) => e.map((track) => {
+            {tracksHalfYear.map((e, i) => e.map((track, index) => {
                 var src = `https://open.spotify.com/embed/track/${track.id}`
                 return (
                     <div key={i}>
-                        <ul className={styles.card}>
-                            <li><a href={track.external_urls.spotify}><h3>{track.name}</h3></a></li>
+                        <div className={styles.card}>
 
                             {/* <iframe src={src}
                                 width="30%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media" ></iframe> */}
 
                             <img src={track.album.images[0].url} />
-                            <li><span>Time : </span>{MstoMn(track.duration_ms)}</li>
-                            <li><span>Album : </span>{track.album.name}</li>
-                            <li><span>Artist : </span><a href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></li>
-                        </ul>
+                            <a target="_blank" rel="noreferrer" href={track.external_urls.spotify}><h2>{index + 1}. {track.name}</h2></a>
+                            <h4><span>Time : </span>{MstoMn(track.duration_ms)}</h4>
+                            <h4><span>Album : </span>{track.album.name}</h4>
+                            <h4><span>Artist : </span>  <a target="_blank" rel="noreferrer" href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></h4>
+                        </div>
                         <br style={{ height: '10px', backgroundColor: 'black' }} />
                     </div>
                 )
@@ -172,21 +172,21 @@ const AllTime = (props) => {
 
     return (
         <div className={styles.display}>
-            {tracksAllTime.map((e, i) => e.map((track) => {
+            {tracksAllTime.map((e, i) => e.map((track, index) => {
                 var src = `https://open.spotify.com/embed/track/${track.id}`
                 return (
                     <div key={i}>
-                        <ul className={styles.card}>
-                            <li><a href={track.external_urls.spotify}><h3>{track.name}</h3></a></li>
+                        <div className={styles.card}>
 
                             {/* <iframe src={src}
                                 width="30%" height="80" frameBorder="0" allowtransparency="true" allow="encrypted-media" ></iframe> */}
 
                             <img src={track.album.images[0].url} />
-                            <li><span>Time : </span>{MstoMn(track.duration_ms)}</li>
-                            <li><span>Album : </span>{track.album.name}</li>
-                            <li><span>Artist : </span><a href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></li>
-                        </ul>
+                            <a target="_blank" rel="noreferrer" href={track.external_urls.spotify}><h2>{index + 1}. {track.name}</h2></a>
+                            <h4><span>Time : </span>{MstoMn(track.duration_ms)}</h4>
+                            <h4><span>Album : </span>{track.album.name}</h4>
+                            <h4><span>Artist : </span>  <a target="_blank" rel="noreferrer" href={track.artists[0].external_urls.spotify}>{track.artists[0].name}</a></h4>
+                        </div>
                         <br style={{ height: '10px', backgroundColor: 'black' }} />
                     </div>
                 )
