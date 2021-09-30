@@ -86,6 +86,10 @@ export default function TopArtists(props) {
                     </div>
                 </div>
             </globalContext.Provider>
+            <style global jsx>{`
+        body{
+            background: #4a2e2e;
+        }`}</style>
         </div>
     )
 }

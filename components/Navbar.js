@@ -59,7 +59,9 @@ export default function Navv() {
                                 <a className={styles.link}>Top Genres</a>
                             </Link>
                         </Nav.Link>
-                        <User />
+                        <Nav.Link>
+                            {<User /> ? <User /> : <h6>Loading..</h6>}
+                        </Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>

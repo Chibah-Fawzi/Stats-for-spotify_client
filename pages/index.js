@@ -31,6 +31,10 @@ export default function Stats() {
           <Homepage cookie={cookie} accessToken={accessToken} setAccessToken={setAccessToken} />
         }
       </globalContext.Provider>
+      <style global jsx>{`
+        body{
+            background: #4a2e2e;
+        }`}</style>
     </div>
   )
 

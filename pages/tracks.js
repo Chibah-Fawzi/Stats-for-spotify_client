@@ -76,22 +76,29 @@ export default function Toptracks(props) {
     }
 
     return (
+
         <div className={styles.container}>
-            <title>Top tracks</title>
             <globalContext.Provider value={{ accessToken, setAccessToken }}>
-                <div className={styles.layout}>
-                    <h1>Your top tracks</h1>
-                    <div className={styles.boxes}>
-                        <button id='lastMonth' onClick={() => handleToggle(0)} className={styles.btn}>Last month</button>
-                        <button id='halfYear' onClick={() => handleToggle(1)} className={styles.btn}>Last 6 months</button>
-                        <button id='allTime' onClick={() => handleToggle(2)} className={styles.btn}>All time</button>
+                <title>Top tracks</title>
+                {accessToken ?
+                    <div className={styles.layout}>
+                        <h1>Your top tracks</h1>
+                        <div className={styles.boxes}>
+                            <button id='lastMonth' onClick={() => handleToggle(0)} className={styles.btn}>Last month</button>
+                            <button id='halfYear' onClick={() => handleToggle(1)} className={styles.btn}>Last 6 months</button>
+                            <button id='allTime' onClick={() => handleToggle(2)} className={styles.btn}>All time</button>
+                        </div>
+                        <Navbar />
+                        <div className={styles.displayWrapper}>
+                            {selected === 0 && handleSelect ? <LastMonth MstoMn={MstoMn} setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} MstoMn={MstoMn} /> : selected === 2 && handleSelect ? <AllTime tracksAllTime={tracksAllTime} MstoMn={MstoMn} /> : ''}
+                        </div>
                     </div>
-                    <Navbar />
-                    <div className={styles.displayWrapper}>
-                        {selected === 0 && handleSelect ? <LastMonth MstoMn={MstoMn} setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} MstoMn={MstoMn} /> : selected === 2 && handleSelect ? <AllTime tracksAllTime={tracksAllTime} MstoMn={MstoMn} /> : ''}
-                    </div>
-                </div>
+                    : <h1>Login</h1>}
             </globalContext.Provider>
+            <style global jsx>{`
+        body{
+            background: #4a2e2e;
+        }`}</style>
         </div>
     )
 }

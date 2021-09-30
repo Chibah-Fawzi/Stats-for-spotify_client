@@ -7,13 +7,12 @@ import Link from 'next/link'
 import { useContext } from 'react'
 import { globalContext } from '../context'
 import cookie from 'react-cookies'
-
-
-
+import { MdArrowDropDownCircle } from '@react-icons/all-files/md/MdArrowDropDownCircle'
 export default function Genres() {
 
     const [user, setUser] = useState([])
     const { accessToken } = useContext(globalContext)
+    const [selected, setSelected] = useState(false)
 
 
     const router = useRouter()
@@ -43,25 +42,28 @@ export default function Genres() {
         router.push('/')
     }
 
+
     return (
-        <div>
+        <div className={styles.container}>
             <div className={styles.layout}>
                 {user.map((u, i) => {
                     return (
                         <div key={i} className={styles.card}>
-                            <div style={{ display: 'flex', flexDirection: 'row' }}>
-                                <img src={u.images[0].url} />
-                                {/* <div style={{ display: 'flex', flexDirection: 'row' }}>
-                                    <a href={u.external_urls.spotify}><h1>{u.display_name}</h1></a>
-                                    <h4>{u.country}</h4>
-                                </div> */}
+                            <div className={styles.avatar} onClick={() => setSelected(!selected)}>
+                                <div className={styles.avatarPlaceholder}></div>
+                                <img src={u.images[0].url} /><span style={{ paddingLeft: '5px' }}><MdArrowDropDownCircle /></span>
                             </div>
-                            {/* <div style={{ marginTop: '-30px' }}>
-                                <hr style={{ color: '#fff', height: "2px" }} />
-                                <h4>{u.email}</h4>
-                                <h4>Follower number : {u.followers.total}</h4>
-                                <a onClick={LogOut} className={styles.disconnect}>Disconnect</a>
-                            </div> */}
+                            <div className={selected ? styles.visible : styles.hidden}>
+                                <div>
+                                    <a href={u.external_urls.spotify}><h3>{u.display_name}</h3></a>
+                                    <h4>{u.country}</h4>
+                                </div>
+                                <div>
+                                    <h4>{u.email}</h4>
+                                    <h4>Follower number : {u.followers.total}</h4>
+                                    <a onClick={LogOut} className={styles.disconnect}>Disconnect</a>
+                                </div>
+                            </div>
                         </div>
                     )
                 }

@@ -39,11 +39,14 @@ export default function Genres() {
 
     return (
         <div>
-            <title>User information</title>
+            <title>Top Genres</title>
             <globalContext.Provider value={{ accessToken, setAccessToken }}>
                 <div className={styles.layout}>
                     <Navbar />
-                    {user.map((u, i) => {
+                    <div>
+                        <h1 style={{ textAlign: 'center', marginTop: "33.5vh", color: '#fff' }}>Coming soon</h1>
+                    </div>
+                    {/* {user.map((u, i) => {
                         return (
                             <div key={i} className={styles.card}>
                                 <img src={u.images[0].url} />
@@ -54,9 +57,13 @@ export default function Genres() {
                             </div>
                         )
                     }
-                    )}
+                    )} */}
                 </div>
             </globalContext.Provider>
+            <style global jsx>{`
+        body{
+            background: #4a2e2e;
+        }`}</style>
         </div>
     )
 }

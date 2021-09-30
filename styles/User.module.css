@@ -1,20 +1,44 @@
 .layout {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
+  max-height: 70px;
+  width: min-content;
 }
 
+.hidden {
+  /* display: none; */
+  visibility: hidden;
+  transform: translateY(10%);
+  color: var(--main-dark);
+  padding: 10px;
+
+  /* transition: all 0.3s ease-out; */
+}
+
+.visible {
+  visibility: visible;
+  transform: translateY(10%);
+  color: var(--main-dark);
+  padding: 10px;
+  transition: all 0.3s ease-in;
+  background-color: #fff;
+  transition: background-color 0.4s ease-out;
+}
 .card {
   display: flex;
-  flex-direction: row;
-  align-items: flex-end;
+  flex-direction: column;
+  visibility: visible;
 }
 
-.card img {
+.card img,
+.card .avatarPlaceholder {
   border-radius: 50%;
   width: 80px;
 }
-
-.card h1 {
+.card .avatarPlaceholder {
+  background: #fff;
+}
+.card h3 {
   font-size: 20px;
 }
 
@@ -22,6 +46,18 @@
   font-size: 12px;
 }
 
+.card h4,
+.card h1 {
+  padding-left: 5px;
+}
+
 .disconnect {
   font-size: 10px;
+  padding-left: 5px;
+}
+
+@media only screen and (max-width: 991px) {
+  .hidden {
+    margin-right: 10vh;
+  }
 }
