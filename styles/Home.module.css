@@ -3,6 +3,7 @@
 }
 
 .brand {
+  padding-top: 2vh;
   color: var(--main-text);
   font-family: var(--font-black);
 }
@@ -13,9 +14,9 @@
 }
 
 .hero h1 {
-  color: var(--main-text);
+  color: #fff;
   font-family: var(--font-black);
-  font-size: 65px;
+  font-size: 60px;
 }
 
 .hero h4 {
