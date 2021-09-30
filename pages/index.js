@@ -28,7 +28,7 @@ export default function Stats() {
 
   return (
     <div className={styles.container}>
-      <title>Spotify App</title>
+      <title>Stats for Spotify</title>
       <globalContext.Provider value={{ accessToken, setAccessToken }}>
         {accessToken ?
           <Main accessToken={accessToken} /> :
