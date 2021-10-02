@@ -16,14 +16,17 @@ export default function Stats() {
 
   useEffect(() => {
     const tok = new URL(window.location.href).search.split('access_token=')[1]
+    const refTok = new URL(window.location.href).search.split('refresh_token=')[1]
     if (tok != null) {
       const token = tok
       cookie.save('token', token, { path: '/' })
       setAccessToken(token)
-    } else if (tok == undefined) {
-      cookie.remove('token', { path: '/' })
-      router.push('/')
     }
+    // else if (tok == undefined) {
+    //   const token = refTok
+    //   cookie.save('token', token, { path: '/' })
+    //   setAccessToken(token)
+    // }
   }, [])
 
   return (

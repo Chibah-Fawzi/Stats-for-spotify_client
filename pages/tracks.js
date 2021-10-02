@@ -97,7 +97,7 @@ export default function Toptracks(props) {
                         </div>
                         <Navbar />
                         <div className={styles.displayWrapper}>
-                            {selected === 0 && handleSelect ? <LastMonth MstoMn={MstoMn} setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} MstoMn={MstoMn} /> : selected === 2 && handleSelect ? <a target="_blank" rel="noreferrer" llTime tracksAllTime={tracksAllTime} MstoMn={MstoMn} /> : ''}
+                            {selected === 0 && handleSelect ? <LastMonth MstoMn={MstoMn} setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} MstoMn={MstoMn} /> : selected === 2 && handleSelect ? <allTime tracksAllTime={tracksAllTime} MstoMn={MstoMn} /> : ''}
                         </div>
                     </div>
                     : <h1>Login</h1>}
