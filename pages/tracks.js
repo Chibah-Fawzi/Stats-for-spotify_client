@@ -81,23 +81,23 @@ export default function Toptracks(props) {
     return (
 
         <div className={styles.container}>
-            {/* <globalContext.Provider value={{ accessToken, setAccessToken }}> */}
-            <title>Top tracks</title>
-            {/* {accessToken && accessToken != (null || undefined) ? */}
-            <div className={styles.layout}>
-                <h1>Your top tracks</h1>
-                <div className={styles.boxes}>
-                    <button id='lastMonth' onClick={() => handleToggle(0)} className={styles.btn}><a href='#display'>Last month</a></button>
-                    <button id='halfYear' onClick={() => handleToggle(1)} className={styles.btn}><a href='#display'>Last 6 months</a></button>
-                    <button id='allTime' onClick={() => handleToggle(2)} className={styles.btn}><a href='#display'>All time</a></button>
+            <globalContext.Provider value={{ accessToken, setAccessToken }}>
+                <title>Top tracks</title>
+                {/* {accessToken && accessToken != (null || undefined) ? */}
+                <div className={styles.layout}>
+                    <h1>Your top tracks</h1>
+                    <div className={styles.boxes}>
+                        <button id='lastMonth' onClick={() => handleToggle(0)} className={styles.btn}><a href='#display'>Last month</a></button>
+                        <button id='halfYear' onClick={() => handleToggle(1)} className={styles.btn}><a href='#display'>Last 6 months</a></button>
+                        <button id='allTime' onClick={() => handleToggle(2)} className={styles.btn}><a href='#display'>All time</a></button>
+                    </div>
+                    <Navbar />
+                    <div id='display' className={styles.displayWrapper}>
+                        {selected === 0 && handleSelect ? <LastMonth MstoMn={MstoMn} setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} MstoMn={MstoMn} /> : selected === 2 && handleSelect ? <AllTime tracksAllTime={tracksAllTime} MstoMn={MstoMn} /> : ''}
+                    </div>
                 </div>
-                <Navbar />
-                <div id='display' className={styles.displayWrapper}>
-                    {selected === 0 && handleSelect ? <LastMonth MstoMn={MstoMn} setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} MstoMn={MstoMn} /> : selected === 2 && handleSelect ? <AllTime tracksAllTime={tracksAllTime} MstoMn={MstoMn} /> : ''}
-                </div>
-            </div>
-            {/* : router.push('/')} */}
-            {/* </globalContext.Provider> */}
+                {/* : router.push('/')} */}
+            </globalContext.Provider>
             <style global jsx>{`
         body{
             background: #4a2e2e;
