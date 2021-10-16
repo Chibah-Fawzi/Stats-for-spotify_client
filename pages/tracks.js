@@ -91,8 +91,8 @@ export default function Toptracks(props) {
                     <button id='halfYear' onClick={() => handleToggle(1)} className={styles.btn}><a href='#display'>Last 6 months</a></button>
                     <button id='allTime' onClick={() => handleToggle(2)} className={styles.btn}><a href='#display'>All time</a></button>
                 </div>
-                    <Navbar />
-                    <div id='display' className={styles.displayWrapper}>
+                <Navbar />
+                <div id='display' className={styles.displayWrapper}>
                     {selected === 0 && handleSelect ? <LastMonth MstoMn={MstoMn} setSelected={setSelected} tracksMonth={tracksMonth} /> : selected === 1 && handleSelect ? <HalfYear tracksHalfYear={tracksHalfYear} MstoMn={MstoMn} /> : selected === 2 && handleSelect ? <AllTime tracksAllTime={tracksAllTime} MstoMn={MstoMn} /> : ''}
                 </div>
             </div>

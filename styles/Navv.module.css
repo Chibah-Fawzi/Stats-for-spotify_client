@@ -47,4 +47,7 @@
   .navList {
     opacity: 0.9;
   }
+  .navBrand {
+    margin-left: 4vw;
+  }
 }

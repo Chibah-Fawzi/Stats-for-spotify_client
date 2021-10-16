@@ -86,7 +86,7 @@ export default function TopArtists(props) {
                         <button id='allTime' onClick={() => handleToggle(2)} className={styles.btn}><a href='#display'>All time</a></button>
                     </div>
                     <Navbar />
-                    <div className={styles.displayWrapper}>
+                    <div id='display' className={styles.displayWrapper}>
                         {selected === 0 && handleSelect ? <LastMonth setSelected={setSelected} artistsMonth={artistsMonth} /> : selected === 1 && handleSelect ? <HalfYear artistsHalfYear={artistsHalfYear} /> : selected === 2 && handleSelect ? <AllTime artistsAllTime={artistsAllTime} /> : ''}
                     </div>
                 </div>
@@ -115,7 +115,7 @@ const LastMonth = (props) => {
                         <a target="_blank" rel="noreferrer" href={artist.external_urls.spotify}>
                             <h4>
                                 <span>
-                                    Ecouter <i>{artist.name}</i>
+                                    Listen to <i>{artist.name}</i>
                                 </span>
                             </h4>
                         </a>
@@ -141,7 +141,7 @@ const HalfYear = (props) => {
                         <a target="_blank" rel="noreferrer" href={artist.external_urls.spotify}>
                             <h4>
                                 <span>
-                                    Ecouter <i>{artist.name}</i>
+                                    Listen to <i>{artist.name}</i>
                                 </span>
                             </h4>
                         </a>
@@ -167,7 +167,7 @@ const AllTime = (props) => {
                         <a target="_blank" rel="noreferrer" href={artist.external_urls.spotify}>
                             <h4>
                                 <span>
-                                    Ecouter <i>{artist.name}</i>
+                                    Listen to <i>{artist.name}</i>
                                 </span>
                             </h4>
                         </a>

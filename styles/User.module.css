@@ -58,6 +58,9 @@
 
 @media only screen and (max-width: 991px) {
   .hidden {
-    margin-right: 10vh;
+    /* margin-right: 10vh; */
+  }
+  .layout {
+    display: none;
   }
 }
