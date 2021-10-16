@@ -42,7 +42,6 @@
   .nav {
     background: var(--main-background);
     margin-left: 0;
-    /* padding: 20px; */
   }
   .navList {
     opacity: 0.9;
