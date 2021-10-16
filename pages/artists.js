@@ -81,9 +81,9 @@ export default function TopArtists(props) {
                 <div className={styles.layout}>
                     <h1>Your top artists</h1>
                     <div className={styles.boxes}>
-                        <button id='lastMonth' onClick={() => handleToggle(0)} className={styles.btn}>Last month</button>
-                        <button id='halfYear' onClick={() => handleToggle(1)} className={styles.btn}>Last 6 months</button>
-                        <button id='allTime' onClick={() => handleToggle(2)} className={styles.btn}>All time</button>
+                        <button id='lastMonth' onClick={() => handleToggle(0)} className={styles.btn}><a href='#display'>Last month</a></button>
+                        <button id='halfYear' onClick={() => handleToggle(1)} className={styles.btn}><a href='#display'>Last 6 months</a></button>
+                        <button id='allTime' onClick={() => handleToggle(2)} className={styles.btn}><a href='#display'>All time</a></button>
                     </div>
                     <Navbar />
                     <div className={styles.displayWrapper}>
