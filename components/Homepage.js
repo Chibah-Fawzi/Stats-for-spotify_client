@@ -7,7 +7,7 @@ export default function Homepage() {
   var router = useRouter();
 
   const Login = () => {
-    router.push(process.env.SERVER_URI + "login");
+    router.push("https://rahma-app.onrender.com/login");
   };
 
   return (
