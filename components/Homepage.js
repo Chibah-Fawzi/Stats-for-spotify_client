@@ -7,7 +7,7 @@ export default function Homepage() {
   var router = useRouter();
 
   const Login = () => {
-    router.push("https://rahma-app.onrender.com/login");
+    router.push("https://stats-for-spotify.onrender.com/login");
   };
 
   return (
